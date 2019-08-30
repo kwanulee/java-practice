@@ -39,13 +39,13 @@
 - 작업 공간 폴더 (디렉토리)를 지정 후, **Launch** 버튼 클릭
 	- Workspace (작업공간)은 자바 프로그램 프로젝트를 저장하는 폴더로서 사용자가 자신의 작업 공간을 지정할 수 있습니다.
 	
-	![](figure/workspace-select.jpg)
+	![](figure/workspace-select.JPG)
 	
 ### 단계2: 프로젝트 생성
 1. **File - New - Java Project** 메뉴 선택
 2. **Project name**에 프로젝트 이름(예, HelloJava)을 입력하고 **Finish**버튼 클릭
 
-	![](figure/create-project.jpg)
+	![](figure/create-project.JPG)
 
 ### 단계3: 모듈 정보 생성 (생략)
 - 다이얼로그 창에서 **Don't Create** 버튼 클릭
@@ -54,7 +54,7 @@
 1.  **File - New - Class** 메뉴 선택
 2. **Name**에 생성할 클래스 이름을 입력하고, **public static void main(String[] args)** 체크박스를 선택 후, **Finish**버튼 클릭
 
-	![](figure/create-class.jpg)
+	![](figure/create-class.JPG)
 
 ### 단계5: 자바 소스 작성
 - 자바 소스 코드 작성
@@ -75,7 +75,7 @@
 
 - **Run**>**Run** 메뉴 선택 혹은 연두색의 아이콘(![](figure/run1.jpg)) 클릭하여 실행결과를 아래 Console참에서 확인
 
-	![](figure/run-result.jpg)
+	![](figure/run-result.JPG)
 		
 ---
 ## 3. IntelliJ IDEA IDE를 이용한 자바 프로그램 개발
