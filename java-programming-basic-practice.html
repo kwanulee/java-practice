@@ -324,7 +324,46 @@ public class Exercise2_4 {
 100달러 0개, 50달러 1개, 20달러 1개, 10달러 1개, 5달러 0개, 2달러 1개, 1달러 0개 </code></pre></div></li>
 </ul>
 
-<h3 id="toc_5">5. switch와 break문 연습</h3>
+<h3 id="toc_5">5. if 조건문 연습</h3>
+
+<ul>
+<li><p>키보드로부터 연도를 입력 받아서 입력받은 연도가 윤년인지 아닌지 판단하는 프로그램을 완성하시오.</p>
+
+<ul>
+<li>주어진 연도 year가 윤년인지 판단하는 방법
+
+<ul>
+<li>year가 400의 배수이면 무조건 윤년, 예, 1600, 2000, 800년 등</li>
+<li>year가 4의 배수이고 100의 배수가 아니면 윤년임. 
+
+<ul>
+<li>예, 1100년은 4의 배수이고 100의 배수이므로, 윤년이 아님</li>
+<li>예, 1004년은 4의 배수이지만 100의 배수가 아니므로, 윤년</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>(힌트) 4의 배수 여부는 %연산자로 판단, 즉, x%4==0 이면 x는 4의 배수</p>
+
+<div><pre><code class="language-java">public class Exercise3_1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print(&quot;연도를 입력하시오:&quot;);
+        int year = scanner.nextInt();
+
+        // year가 윤년인지 아닌지 판단하여 결과를 출력하는 코드 추가
+    }
+}</code></pre></div></li>
+<li><p>실행결과</p>
+
+<div><pre><code class="language-none">연도를 입력하시오: 2017
+2017년은 윤년이 아닙니다.</code></pre></div>
+
+<div><pre><code class="language-none">연도를 입력하시오: 2016
+2016년은 윤년입니다.</code></pre></div></li>
+</ul>
+
+<h3 id="toc_6">6. switch와 break문 연습</h3>
 
 <ul>
 <li>학점이 A, B이면, <q>Excellent</q>, 학점이 C, D이면 <q>Good</q>, 학점이 F이면 <q>Bye</q>라고 출력하는 프로그램을 작성하라. switch와 break를 활용하라.</li>
@@ -334,7 +373,7 @@ public class Exercise2_4 {
 Excellent</code></pre></div></li>
 </ul>
 
-<h3 id="toc_6">6. 구구단 (1단-9단)을 출력 프로그램 작성</h3>
+<h3 id="toc_7">7. 구구단 (1단-9단)을 출력 프로그램 작성</h3>
 
 <ul>
 <li><p>구구단 (1단-9단)을 아래와 같이 1줄에 3단씩 출력하도록 프로그램을 작성하시오.</p>

@@ -67,7 +67,39 @@ public class 실습 2_3{
 	100달러 0개, 50달러 1개, 20달러 1개, 10달러 1개, 5달러 0개, 2달러 1개, 1달러 0개 
 	```
 
-### 5. switch와 break문 연습
+### 5. if 조건문 연습
+- 키보드로부터 연도를 입력 받아서 입력받은 연도가 윤년인지 아닌지 판단하는 프로그램을 완성하시오.
+	- 주어진 연도 year가 윤년인지 판단하는 방법
+		- year가 400의 배수이면 무조건 윤년, 예, 1600, 2000, 800년 등
+		- year가 4의 배수이고 100의 배수가 아니면 윤년임. 
+			- 예, 1100년은 4의 배수이고 100의 배수이므로, 윤년이 아님
+			- 예, 1004년은 4의 배수이지만 100의 배수가 아니므로, 윤년
+   
+   (힌트) 4의 배수 여부는 %연산자로 판단, 즉, x%4==0 이면 x는 4의 배수
+
+	```java
+	public class Exercise3_1 {
+		public static void main(String[] args) {
+			Scanner scanner = new Scanner(System.in);
+			System.out.print("연도를 입력하시오:");
+			int year = scanner.nextInt();
+			
+			// year가 윤년인지 아닌지 판단하여 결과를 출력하는 코드 추가
+		}
+	}
+	```
+- 실행결과
+
+	```
+	연도를 입력하시오: 2017
+	2017년은 윤년이 아닙니다.
+	```
+	```
+	연도를 입력하시오: 2016
+	2016년은 윤년입니다.
+	```
+	
+### 6. switch와 break문 연습
 - 학점이 A, B이면, "Excellent", 학점이 C, D이면 "Good", 학점이 F이면 "Bye"라고 출력하는 프로그램을 작성하라. switch와 break를 활용하라.
 - 실행결과
 
@@ -76,7 +108,7 @@ public class 실습 2_3{
 	Excellent
 	```
 
-### 6. 구구단 (1단-9단)을 출력 프로그램 작성
+### 7. 구구단 (1단-9단)을 출력 프로그램 작성
 - 구구단 (1단-9단)을 아래와 같이 1줄에 3단씩 출력하도록 프로그램을 작성하시오.
 	- 단, 강의자료에 게시된 코드 (https://github.com/kwanulee/JavaExample/blob/master/JavaBasic/src/com/kwanwoo/java/MultiplicationTableBy3.java) 와는 다른 방식으로 구현해야 합니다.
 
