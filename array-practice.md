@@ -13,165 +13,190 @@
 
 <a name="2"></a>
 ### 2. 배열의 length 필드 활용
-- 학생 수를 입력 받고, 
+- [문제1](#1)의 코드를 배열의 length 필드를 이용하도록 수정하시오. 
 
 <a name="3"></a>
-### 3. 아래 코드에서 잘못된 부분을 수정하고, 실행결과를 출력하시오
-
-```java
-public class 실습 2_3{
-	public static void main(String args[]) {
-		boolean a = 10>0;
-		boolean b = 1;
-		byte c =  128;
-		short d = 129;
-		int e = 300000;
-		long f = 3.14;
-		float g = 3.14; 
-		double h = 3.14;
-		char i = 'a';
-		char j = '한';
-		final double PI = 3.142592;
-		
-		System.out.println("c="+c);
-		PI = 3.14;
-		System.out.println("PI="+PI);
-	}
-}
-
-```
-```
-public class MultiplicationTableBy3 {
-    public static void main(String[] args) {
-
-        for (int k =1; k<10; k+=3) {            // 3단씩 3번 반복
-            for (int i = 1; i < 10; i++) {      // 단에 대한 반복. 1단에서 9단
-                for (int j = k; j < 10; j++) {  // 각 단의 곱셈
-                    System.out.print(j + "*" + i + "=" + i * j); // 구구셈 출력
-                    System.out.print('\t'); // 하나씩 탭으로 띄기
-                    if (j % 3 == 0) break;
-                }
-                System.out.println(); // 3단 씩의 출력 끝나면 한 줄 띄움
-            }
-            System.out.println();
-        }
-    }
-}
-```
-
-<a name="4"></a>
-### 4. 산술 연산자 응용 프로그램 작성하기
-- 원화를 달러로 환전해 주는 프로그램을 완성하여라. 
-	- 원화 액수와 환율을 각각 입력 받고, 환전된  달러가 100 달러, 50 달러, 20달러, 10 달러, 5 달러, 2달러, 1달러 지폐 각각 몇 개로 변환되는 지 출력하라. 단 1 달러 이하의 금액은 버린다고 가정한다.
-
+### 3. 배열과 메소드 활용
+- 다음은 키보드로부터 정수 5개를 입력받아 배열에 저장하고, 증가하는 순서로 배열을 정렬하고, 정렬된 배열을 출력하는 프로그램이다.
+	1. private static void sortNumbers(int[] array)를 완성하라.
+	2. private static void printNumbers(int[] array)를 완성하라.
+ 
 	```java
 	import java.util.Scanner;
 	
-	public class Exercise2_4 {
+	public class Practice3_3 {
 	    public static void main(String[] args) {
-	        int won;
-	        double rate;
-	        int dollar;
-	
+	        int[] numbers = inputNumbers();
+	        sortNumbers(numbers);
+	        printNumbers(numbers);
+	    }
+	    private static int[] inputNumbers() {
+	        int[] nums = new int[5];
 	        Scanner scanner = new Scanner(System.in);
-	        System.out.print("환전할 원화 액수를 입력하시오>");
-	        won = scanner.nextInt();
-	
-	        System.out.print("현재의 환율을 입력하시오>");
-	        rate = scanner.nextDouble();
-	
-	        dollar = (int)(won/rate);
-	        System.out.println("환전한 달러는 총 "+dollar+" 입니다");
-	        
-	        // 여기서부터 코드 추가하세요
-		}
+	        System.out.println("5개의 정수를 입력하시오");
+	        for (int i = 0; i < 5; i++) {
+	            System.out.print((i+1)+"번째 정수=");
+	            nums[i] = scanner.nextInt();
+	        }
+	        return nums;
+	    }
+	    private static void sortNumbers(int[] array) {
+	        // 배열 array를 증가하는 순서로 정렬한다 
+	    }
+	    private static void printNumbers(int[] array) {
+	        //  배열 array를 출력한다 
+	    }
 	}
 	```
+
+- (참고자료)
+	- 강의자료 [ArrayTest2 코드](https://github.com/kwanulee/JavaExample/blob/master/JavaArray/src/ArrayTest2.java)
+	- 배열 정렬 방법 
+		- http://terms.naver.com/entry.nhn?docId=2270437&cid=51173&categoryId=51173
+
 - 실행결과
 
 	```
-	환전할 원화 액수를 입력하시오>100000
-	현재의 환율을 입력하시오>1209
-	환전한 달러는 총 82 입니다
-	100달러 0개, 50달러 1개, 20달러 1개, 10달러 1개, 5달러 0개, 2달러 1개, 1달러 0개 
+	5개의 정수를 입력하시오
+	1번째 정수=3
+	2번째 정수=7
+	3번째 정수=6
+	4번째 정수=9
+	5번째 정수=4
+	
+	배열 내용 출력(중가하는 순서)
+	array[0]= 3
+	array[1]= 4
+	array[2]= 6
+	array[3]= 7
+	array[4]= 9
 	```
+
+<a name="4"></a>
+### 4. 예외처리 연습
+- [문제3](#3)의 코드에서 사용자가 정수 이외의 값을 입력하였을 때, 경고 메시지를 출력하도록 예외처리를 하고, 정수 값을 올바로 입력할 수 있도록 코드를 수정하시오. 
+	- [힌트] scanner.nextInt() 메소드가 수행될 때, 정수 이외의 값이 입력되면 버퍼에는 의미없는 찌꺼기 데이터가 남아 있을 수 있습니다. 이 데이터를 버퍼에서 지우는 방법은 scanner.nextLine() 메소드를 수행하는 것입니다.  
+	 
+- 실행결과
+
+	```
+	5개의 정수를 입력하시오
+	1번째 정수=f
+	경고! 정수를 입력하지 않았습니다.
+	1번째 정수=3
+	2번째 정수=2.3
+	경고! 정수를 입력하지 않았습니다.
+	2번째 정수=3
+	3번째 정수=42
+	4번째 정수=3
+	5번째 정수=6
+	
+	배열 내용 출력(중가하는 순서)
+	array[0]=3
+	array[1]=3
+	array[2]=3
+	array[3]=6
+	array[4]=42
+	```
+
 <a name="5"></a>
-### 5. if 조건문 연습
-- 키보드로부터 연도를 입력 받아서 입력받은 연도가 윤년인지 아닌지 판단하는 프로그램을 완성하시오.
-	- 주어진 연도 year가 윤년인지 판단하는 방법
-		- year가 400의 배수이면 무조건 윤년, 예, 1600, 2000, 800년 등
-		- year가 4의 배수이고 100의 배수가 아니면 윤년임. 
-			- 예, 1100년은 4의 배수이고 100의 배수이므로, 윤년이 아님
-			- 예, 1004년은 4의 배수이지만 100의 배수가 아니므로, 윤년
-   
-   (힌트) 4의 배수 여부는 %연산자로 판단, 즉, x%4==0 이면 x는 4의 배수
+### 5. 2차원 배열 사용하기1
+- 다음은 3x4의 2차원 배열을 만들고, 이곳에 0~9 범위의 정수를 랜덤하게 저장한 후, 2차원 배열과 합을 출력하는 프로그램의 실행 결과와 코드이다. ****표시된 곳에 적절한 코드를 삽입하라.
 
 	```java
-	public class Exercise3_1 {
+	public class RadomArray {
+	
 		public static void main(String[] args) {
-			Scanner scanner = new Scanner(System.in);
-			System.out.print("연도를 입력하시오:");
-			int year = scanner.nextInt();
+			int intArray[][];		// 2차원 정수 배열 선언
+			****************			// intArray에 3x4 정수 배열 생성
 			
-			// year가 윤년인지 아닌지 판단하여 결과를 출력하는 코드 추가
+			//12개의 정수를 랜덤하게 발생시켜 배열에 순서대로 저장한다.
+			for (int i=0; i<3; i++)
+				for (int j=0; j<4; j++)
+					intArray[i][j] = (int)(Math.random()*10);
+			
+			// 3x4 배열을 출력한다.
+			for (int i=0; i< ******** ; i++) {	// length 필드를 이용하라.
+				for (int j=0; j< ******* ; j++)	// length 필드를 이용하라.
+					*******************************	// 	원소 [i][j] 출
+				System.out.println();
+			}
+			
+			// 3x4 배열의 합을 구하여 출력한다.
+			int i=0, sum=0;
+			while(i<3) {	//3개의 각 행에 대해 반복
+				*************************
+				*************************
+				*************************
+			}
+			System.out.println("합은 "+sum);
 		}
 	}
 	```
-- 실행결과
-
-	```
-	연도를 입력하시오: 2017
-	2017년은 윤년이 아닙니다.
-	```
-	```
-	연도를 입력하시오: 2016
-	2016년은 윤년입니다.
-	```
-<a name="6"></a>	
-### 6. switch와 break문 연습
-- 학점이 A, B이면, "Excellent", 학점이 C, D이면 "Good", 학점이 F이면 "Bye"라고 출력하는 프로그램을 작성하라. switch와 break를 활용하라.
-- 실행결과
-
-	```
-	학점을 입력하세요>>B
-	Excellent
-	```
-
-<a name="7"></a>
-### 7. 구구단 (1단-9단)을 출력 프로그램 작성
-- 구구단 (1단-9단)을 아래와 같이 1줄에 3단씩 출력하도록 프로그램을 작성하시오.
-	- 단, 강의자료에 게시된 코드 (https://github.com/kwanulee/JavaExample/blob/master/JavaBasic/src/com/kwanwoo/java/MultiplicationTableBy3.java) 와는 다른 방식으로 구현해야 합니다.
 
 - 실행결과
 
 	```
-	1*1=1	2*1=2	3*1=3	
-	1*2=2	2*2=4	3*2=6	
-	1*3=3	2*3=6	3*3=9	
-	1*4=4	2*4=8	3*4=12	
-	1*5=5	2*5=10	3*5=15	
-	1*6=6	2*6=12	3*6=18	
-	1*7=7	2*7=14	3*7=21	
-	1*8=8	2*8=16	3*8=24	
-	1*9=9	2*9=18	3*9=27	
+	1	2	1	0	
+	3	7	1	3	
+	4	3	1	0	
+	합은 26
+	```
+
+<a name="6"></a>
+### 6. 2차원 배열 사용하기2
+- 강의자료에서 예시한 ArrayTest3는 학생수와 과제수를 키보드로 입력받아 2차원 배열을 생성(**getArray()**)하고, 과제별 학생점수를 다시 키보드로부터 입력받아 생성된 2차원 배열에 저장(**inputGrade(int[][] scoresByAssings)**)한다. 마지막으로 이 2차원 배열을 화면에 정렬된 형태로 출력(**print(int[][])**)한다
+
+- 이를 바탕으로 다음과 같이 수정 확장한다.
+	1.	private static int[] calculateAverage(int[][] scoresByAssigns)를 완성하라.
+	2.	private static void print(int[][] scoresByAssigns, int[] averageByAssigns)를 기존 메소드를 바탕으로 확장하여 완성하라.
+
+	```java
+	public class Practice3_6 {
+		public static void main(String[] args) {
+			int [][] scoresByAssignments = getArray();
+			inputGrade(scoresByAssignments);
+	        int [] averageByAssignments = calculateAverage(scoresByAssignments);
+	        print(scoresByAssignments,averageByAssignments);
+		}
+		private static int[][] getArray() {  
+			// ArrayTest3의 getArray()와 동일 
+		}
+		
+		private static void inputGrade(int[][] scoresByAssigns) {
+			// ArrayTest3의 inputGrade(int[][])와 동일
+		}
+		
+		private static int[] calculateAverage(int[][] scoresByAssigns) {
+	        //  과제별 학생점수를 기록한 2차원 배열 scoresByAssigns을 바탕으로
+	        //  과제별 학생점수의 평균을 계산하고, 이를 저장한 배열을 반환한다.
+		}
 	
-	4*1=4	5*1=5	6*1=6	
-	4*2=8	5*2=10	6*2=12	
-	4*3=12	5*3=15	6*3=18	
-	4*4=16	5*4=20	6*4=24	
-	4*5=20	5*5=25	6*5=30	
-	4*6=24	5*6=30	6*6=36	
-	4*7=28	5*7=35	6*7=42	
-	4*8=32	5*8=40	6*8=48	
-	4*9=36	5*9=45	6*9=54	
+		private static void print(int[][] scoresByAssigns, int[] averageByAssigns){
+	        //  과제별 학생점수를 기록한2차원 배열 scoresByAssigns과
+	        //  과제별 학생들의 평균점수를 기록한 배열 averageByAssigns를 
+	        //  화면에 정렬된 형태로 출력한다.
 	
-	7*1=7	8*1=8	9*1=9	
-	7*2=14	8*2=16	9*2=18	
-	7*3=21	8*3=24	9*3=27	
-	7*4=28	8*4=32	9*4=36	
-	7*5=35	8*5=40	9*5=45	
-	7*6=42	8*6=48	9*6=54	
-	7*7=49	8*7=56	9*7=63	
-	7*8=56	8*8=64	9*8=72	
-	7*9=63	8*9=72	9*9=81	
+		}
+	}
 	```
+
+- 실행결과
+
+	```
+	학생 수를 입력하시오:3
+	과제 수를 입력하시오:2
+	과제 0의 학생 성적을 차례로 입력하시오
+	학생 S[0]의 과제 A[0] 성적:1
+	학생 S[1]의 과제 A[0] 성적:2
+	학생 S[2]의 과제 A[0] 성적:3
+	과제 1의 학생 성적을 차례로 입력하시오
+	학생 S[0]의 과제 A[1] 성적:4
+	학생 S[1]의 과제 A[1] 성적:5
+	학생 S[2]의 과제 A[1] 성적:6
+	    	S[0]	S[1]	S[2]	평균
+	A[0]	  1	  	2	  	3	 	2	
+	A[1]	  4	  	5	  	6	 	5
+	```
+
+- 참고자료: [ArrayTest3.java 코드](https://github.com/kwanulee/JavaExample/blob/master/JavaArray/src/ArrayTest3.java)
