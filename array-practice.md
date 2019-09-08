@@ -1,13 +1,19 @@
-# 자바 프로그래밍 기초1 [실습]
+# 자바 배열 [실습]
 
 <a name="1"></a>
-### 1.	자신의 정보를 출력하는 자바 프로그램 작성하기
-- 자신의 학부/트랙 또는 학과, 학번, 학년, 이름을 화면에 출력하시오. 단 화면에 출력되는 형태는 자유롭게 정의해도 됩니다.
+### 1.	자바 키 입력, 배열, 반복문 연습
+- 정수 10개를 키보드로부터 입력받아 배열에 저장한 후, 배열을 검색하여 3의 배수만 골라 출력하는 프로그램을 작성하라.
+
+- 실행결과
+	
+	```
+	10개의 정수를 입력하시오>>5 10 39 23 48 29 18 83 2 90 
+	39 48 18 90
+	```
 
 <a name="2"></a>
-### 2. 프로그램에 주석을 달고, HTML 문서 생성하기
-
-- 1번 프로그램의 클래스, main() 메소드, 문장 각각에 주석(Comment)을 추가하고, Eclipse IDE의 HTML 문서 생성 기능을 활용하여 HTML 문서를 생성하시오.
+### 2. 배열의 length 필드 활용
+- 학생 수를 입력 받고, 
 
 <a name="3"></a>
 ### 3. 아래 코드에서 잘못된 부분을 수정하고, 실행결과를 출력하시오
@@ -134,7 +140,7 @@ public class MultiplicationTableBy3 {
 <a name="7"></a>
 ### 7. 구구단 (1단-9단)을 출력 프로그램 작성
 - 구구단 (1단-9단)을 아래와 같이 1줄에 3단씩 출력하도록 프로그램을 작성하시오.
-	- 단, 강의자료에 게시된 코드 (https://github.com/kwanulee/JavaExample/blob/master/JavaBasic/src/MultiplicationTableBy3.java) 와는 다른 방식으로 구현해야 합니다.
+	- 단, 강의자료에 게시된 코드 (https://github.com/kwanulee/JavaExample/blob/master/JavaBasic/src/com/kwanwoo/java/MultiplicationTableBy3.java) 와는 다른 방식으로 구현해야 합니다.
 
 - 실행결과
 

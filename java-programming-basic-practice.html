@@ -292,6 +292,23 @@ pre[class*="language-"] {
 }
 </code></pre></div>
 
+<div><pre><code class="language-none">public class MultiplicationTableBy3 {
+    public static void main(String[] args) {
+
+        for (int k =1; k&lt;10; k+=3) {            // 3단씩 3번 반복
+            for (int i = 1; i &lt; 10; i++) {      // 단에 대한 반복. 1단에서 9단
+                for (int j = k; j &lt; 10; j++) {  // 각 단의 곱셈
+                    System.out.print(j + &quot;*&quot; + i + &quot;=&quot; + i * j); // 구구셈 출력
+                    System.out.print(&#39;\t&#39;); // 하나씩 탭으로 띄기
+                    if (j % 3 == 0) break;
+                }
+                System.out.println(); // 3단 씩의 출력 끝나면 한 줄 띄움
+            }
+            System.out.println();
+        }
+    }
+}</code></pre></div>
+
 <p><a name="4"></a></p>
 
 <h3 id="toc_4">4. 산술 연산자 응용 프로그램 작성하기</h3>
@@ -387,7 +404,7 @@ Excellent</code></pre></div></li>
 <li><p>구구단 (1단-9단)을 아래와 같이 1줄에 3단씩 출력하도록 프로그램을 작성하시오.</p>
 
 <ul>
-<li>단, 강의자료에 게시된 코드 (<a href="https://github.com/kwanulee/JavaExample/blob/master/JavaBasic/src/com/kwanwoo/java/MultiplicationTableBy3.java">https://github.com/kwanulee/JavaExample/blob/master/JavaBasic/src/com/kwanwoo/java/MultiplicationTableBy3.java</a>) 와는 다른 방식으로 구현해야 합니다.</li>
+<li>단, 강의자료에 게시된 코드 (<a href="https://github.com/kwanulee/JavaExample/blob/master/JavaBasic/src/MultiplicationTableBy3.java">https://github.com/kwanulee/JavaExample/blob/master/JavaBasic/src/MultiplicationTableBy3.java</a>) 와는 다른 방식으로 구현해야 합니다.</li>
 </ul></li>
 <li><p>실행결과</p>
 
