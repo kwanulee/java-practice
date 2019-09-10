@@ -292,23 +292,6 @@ pre[class*="language-"] {
 }
 </code></pre></div>
 
-<div><pre><code class="language-none">public class MultiplicationTableBy3 {
-    public static void main(String[] args) {
-
-        for (int k =1; k&lt;10; k+=3) {            // 3단씩 3번 반복
-            for (int i = 1; i &lt; 10; i++) {      // 단에 대한 반복. 1단에서 9단
-                for (int j = k; j &lt; 10; j++) {  // 각 단의 곱셈
-                    System.out.print(j + &quot;*&quot; + i + &quot;=&quot; + i * j); // 구구셈 출력
-                    System.out.print(&#39;\t&#39;); // 하나씩 탭으로 띄기
-                    if (j % 3 == 0) break;
-                }
-                System.out.println(); // 3단 씩의 출력 끝나면 한 줄 띄움
-            }
-            System.out.println();
-        }
-    }
-}</code></pre></div>
-
 <p><a name="4"></a></p>
 
 <h3 id="toc_4">4. 산술 연산자 응용 프로그램 작성하기</h3>
@@ -346,11 +329,14 @@ public class Exercise2_4 {
 <div><pre><code class="language-none">환전할 원화 액수를 입력하시오&gt;100000
 현재의 환율을 입력하시오&gt;1209
 환전한 달러는 총 82 입니다
-100달러 0개, 50달러 1개, 20달러 1개, 10달러 1개, 5달러 0개, 2달러 1개, 1달러 0개 </code></pre></div>
+100달러 0개, 50달러 1개, 20달러 1개, 10달러 1개, 5달러 0개, 2달러 1개, 1달러 0개 </code></pre></div></li>
+</ul>
 
 <p><a name="5"></a></p>
 
-<h3 id="toc_5">5. if 조건문 연습</h3></li>
+<h3 id="toc_5">5. if 조건문 연습</h3>
+
+<ul>
 <li><p>키보드로부터 연도를 입력 받아서 입력받은 연도가 윤년인지 아닌지 판단하는 프로그램을 완성하시오.</p>
 
 <ul>
@@ -384,12 +370,15 @@ public class Exercise2_4 {
 2017년은 윤년이 아닙니다.</code></pre></div>
 
 <div><pre><code class="language-none">연도를 입력하시오: 2016
-2016년은 윤년입니다.</code></pre></div>
+2016년은 윤년입니다.</code></pre></div></li>
+</ul>
 
 <p><a name="6"></a>    </p>
 
-<h3 id="toc_6">6. switch와 break문 연습</h3></li>
-<li><p>학점이 A, B이면, <q>Excellent</q>, 학점이 C, D이면 <q>Good</q>, 학점이 F이면 <q>Bye</q>라고 출력하는 프로그램을 작성하라. switch와 break를 활용하라.</p></li>
+<h3 id="toc_6">6. switch와 break문 연습</h3>
+
+<ul>
+<li>학점이 A, B이면, <q>Excellent</q>, 학점이 C, D이면 <q>Good</q>, 학점이 F이면 <q>Bye</q>라고 출력하는 프로그램을 작성하라. switch와 break를 활용하라.</li>
 <li><p>실행결과</p>
 
 <div><pre><code class="language-none">학점을 입력하세요&gt;&gt;B

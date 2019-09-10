@@ -34,24 +34,6 @@ public class 실습 2_3{
 }
 
 ```
-```
-public class MultiplicationTableBy3 {
-    public static void main(String[] args) {
-
-        for (int k =1; k<10; k+=3) {            // 3단씩 3번 반복
-            for (int i = 1; i < 10; i++) {      // 단에 대한 반복. 1단에서 9단
-                for (int j = k; j < 10; j++) {  // 각 단의 곱셈
-                    System.out.print(j + "*" + i + "=" + i * j); // 구구셈 출력
-                    System.out.print('\t'); // 하나씩 탭으로 띄기
-                    if (j % 3 == 0) break;
-                }
-                System.out.println(); // 3단 씩의 출력 끝나면 한 줄 띄움
-            }
-            System.out.println();
-        }
-    }
-}
-```
 
 <a name="4"></a>
 ### 4. 산술 연산자 응용 프로그램 작성하기
@@ -89,6 +71,7 @@ public class MultiplicationTableBy3 {
 	환전한 달러는 총 82 입니다
 	100달러 0개, 50달러 1개, 20달러 1개, 10달러 1개, 5달러 0개, 2달러 1개, 1달러 0개 
 	```
+
 <a name="5"></a>
 ### 5. if 조건문 연습
 - 키보드로부터 연도를 입력 받아서 입력받은 연도가 윤년인지 아닌지 판단하는 프로그램을 완성하시오.
@@ -121,6 +104,7 @@ public class MultiplicationTableBy3 {
 	연도를 입력하시오: 2016
 	2016년은 윤년입니다.
 	```
+	
 <a name="6"></a>	
 ### 6. switch와 break문 연습
 - 학점이 A, B이면, "Excellent", 학점이 C, D이면 "Good", 학점이 F이면 "Bye"라고 출력하는 프로그램을 작성하라. switch와 break를 활용하라.
