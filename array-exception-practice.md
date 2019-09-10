@@ -75,7 +75,7 @@
 <a name="4"></a>
 ### 4. 예외처리 연습
 - [문제3](#3)의 코드에서 사용자가 정수 이외의 값을 입력하였을 때, 경고 메시지를 출력하도록 예외처리를 하고, 정수 값을 올바로 입력할 수 있도록 코드를 수정하시오. 
-	- [힌트] scanner.nextInt() 메소드가 수행될 때, 정수 이외의 값이 입력되면 버퍼에는 의미없는 찌꺼기 데이터가 남아 있을 수 있습니다. 이 데이터를 버퍼에서 지우는 방법은 scanner.nextLine() 메소드를 수행하는 것입니다.  
+	- [참고] https://github.com/kwanulee/JavaExample/blob/master/JavaException/InputException/src/InputException.java 
 	 
 - 실행결과
 
