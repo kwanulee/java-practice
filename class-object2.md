@@ -68,3 +68,35 @@ public class Rect {
 	- **public void display()**: 
 		- Rectangle 배열에서 저장된 모든 Rectangle 객체를 화면에 출력
 
+- 작성된 두 개의 클래스를 테스트하기 위한 main함수를 포함한 클래스와 실행결과는 다음과 같다.
+
+	```java
+	public class FigureEditorTest {
+		public static void main(String[] args) {
+			FigureEditor editor = new FigureEditor();
+	
+			Rectangle r1 = new Rectangle(1,2,3,4);
+			Rectangle r2 = new Rectangle(2,3,4,5);
+		
+			editor.add(r1);
+			editor.add(r2);
+			editor.display();
+			
+			Rectangle r3 = new Rectangle(2,3,4,5);
+			editor.add(r3);
+			editor.display();
+			
+			r3.setX(1);
+			editor.add(r3);
+			editor.display();
+			
+			r3.setX(2);
+			editor.add(r3);
+			editor.display();
+		}
+	}
+	```
+	
+	- 실행결과
+
+		![](figure/practice5_4.png)
