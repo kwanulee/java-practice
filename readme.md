@@ -6,7 +6,7 @@
 | 2주 | [자바 프로그래밍 기초1 [실습]](java-programming-basic-practice.html)|
 | 3주 | [자바 배열 및 예외처리 [실습]](array-exception-practice.html)|
 | 4주 | [클래스와 객체 [실습]](class-object.html) |
-| 5주 | 접근지정자 및 static 멤버 실습 |
+| 5주 | [객체배열 및 캡슐화 실습](class-object2.html) |
 | 6주 | 클래스 상속 실습 |
 | 7주 | 다형성 실습 |
 | 9주 | 자바 스윙 GUI 실습 |
