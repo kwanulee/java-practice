@@ -101,8 +101,8 @@
 	- Shape 객체 배열 변수 (private): Shape 타입 객체 (Rectangle 객체 혹은 Circle 객체)를 저장하는 배열
 	- int 타입의 변수 (private): Shape 객체 배열에 저장된 객체의 수를 나타냄.
 	- 생성자: 멤버 변수 값을 초기화함.
-	- Shape 객체 배열 생성 (배열의 크기는 임의로 설정)
-	- int 타입의 변수 초기화
+		- Shape 객체 배열 생성 (배열의 크기는 임의로 설정)
+		- int 타입의 변수 초기화
 	- public void add(Shape s)
 	- public void delete(Shape s)
 	- public void display()
