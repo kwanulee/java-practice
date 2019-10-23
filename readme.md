@@ -9,7 +9,7 @@
 | 5주 | [객체배열 및 캡슐화 실습](class-object2.html) |
 | 6주 | [클래스 상속 실습](class-inheritance.html) |
 | 7주 | [다형성 실습](polymorphism.html) |
-| 9주 | 자바 스윙 GUI 실습 |
+| 9주 | [자바 스윙 GUI 실습](gui-basic.html) |
 | 10주 | 자바의 이벤트 처리 실습 |
 | 11주 | 다양한 스윙 컴포넌트 활용 실습 |
 | 12주 | 패키지와 컬렉션 실습 |
