@@ -543,11 +543,21 @@ const char SECRET_CERTIFICATE[] = R&quot;(
 
 <h3 id="toc_13">3.2 디바이스 섀도우 서비스 사용 시나리오</h3>
 
+<ul>
+<li>디바이스 상태가 변경되는 경우</li>
+<li>애플리케이션이 디바이스의 상태 정보를 요청하는 경우</li>
+<li>애플리케이션이 디바이스의 상태 변경을 요청하는 경우</li>
+</ul>
+
+<h4 id="toc_14">3.2.1 디바이스 상태가 변경되는 경우</h4>
+
+<p><img src="figures/device-state-changed.png" alt=""></p>
+
 <ol>
 <li><p>전구가 온라인 상태가 되면 전구는 MQTT 메시지를 <strong>$aws/things/myLightBulb/shadow/update</strong> 주제로 전송하여 현재 상태를 디바이스 섀도우 서비스에 알립니다. </p>
 
 <ul>
-<li><p>이를 시뮬레이션하려면 AWS IoT MQTT 클라이언트를 사용하여 다음 메시지를 $aws/things/myLightBulb/shadow/update 주제에 게시합니다.</p>
+<li><p>이를 시뮬레이션하려면 <strong>AWS IoT MQTT Client</strong>를 사용하여 다음 메시지를 $aws/things/myLightBulb/shadow/update 주제에 게시합니다.</p>
 
 <div><pre><code class="language-javascript">{
     &quot;state&quot;: {
@@ -586,7 +596,7 @@ const char SECRET_CERTIFICATE[] = R&quot;(
 <ul>
 <li>이 메시지는 디바이스 섀도우 서비스가 UPDATE 요청을 수신하여 디바이스 섀도우를 업데이트했음을 나타냅니다.</li>
 </ul></li>
-<li><p>또한 디바이스 섀도우 서비스가 다음 메시지를 <strong>$aws/things/myLightBulb/shadow/update/documents</strong> 주제에 게시합니다.</p>
+<li><p>디바이스 섀도우에 대한 업데이트가 성공적으로 완료되면, 디바이스 섀도우 서비스가 다음 메시지를 <strong>$aws/things/myLightBulb/shadow/update/documents</strong> 주제에 게시합니다.</p>
 
 <div><pre><code class="language-javascript">{
     &quot;previous&quot;:null,
@@ -606,16 +616,20 @@ const char SECRET_CERTIFICATE[] = R&quot;(
          &quot;version&quot;:1
      },
      &quot;timestamp&quot;:1483467764
-}</code></pre></div>
+}</code></pre></div></li>
+</ol>
+
+<h4 id="toc_15">3.2.2 애플리케이션이 디바이스의 상태 정보를 요청하는 경우</h4>
+
+<p><img src="figures/get-device-state.png" alt=""></p>
+
+<ol>
+<li>전구와 상호 작용하는 애플리케이션이 온라인 상태가 되고 <strong>전구의 현재 상태를 요청</strong>합니다.
 
 <ul>
-<li>디바이스 섀도우에 대한 업데이트가 성공적으로 완료될 때마다 /update/documents 주제에 메시지가 게시됩니다.</li>
+<li>이를 시뮬레이션하려면 <strong>AWS IoT MQTT Client</strong>를 사용하여 <strong>$aws/things/myLightBulb/shadow/get</strong> 주제에 빈 메시지(&quot;&quot;)를 게시합니다.</li>
 </ul></li>
-<li><p>전구와 상호 작용하는 애플리케이션이 온라인 상태가 되고 <strong>전구의 현재 상태를 요청</strong>합니다.</p>
-
-<ul>
-<li>이를 시뮬레이션하려면 AWS IoT MQTT 클라이언트를 사용하여 <strong>$aws/things/myLightBulb/shadow/get</strong> 주제에 빈 메시지(&quot;&quot;)를 게시합니다.</li>
-</ul>
+<li><p>디바이스 섀도우 서비스가 <strong>$aws/things/myLightBulb/shadow/get/accepted</strong> 주제에 요청된 섀도우를 게시하여 응답합니다.</p>
 
 <div><pre><code class="language-javascript">{
   &quot;messageNumber&quot;: 1,
@@ -639,10 +653,17 @@ const char SECRET_CERTIFICATE[] = R&quot;(
   &quot;timestamp&quot;: 1469564571533,
   &quot;topic&quot;: &quot;$aws/things/myLightBulb/shadow/get/accepted&quot;
 }</code></pre></div></li>
-<li><p>애플리케이션이 사용자에게 이 정보를 표시하고, <strong>사용자가 전구 색상 변경(빨간색에서 녹색으로)을 요청</strong>합니다.</p>
+</ol>
+
+<h4 id="toc_16">3.2.3 애플리케이션이 디바이스의 상태 변경을 요청하는 경우</h4>
+
+<p><img src="figures/state-change-by-app.png" alt=""></p>
+
+<ol>
+<li><p>사용자는 애플리케이션을 통해 <strong>디바이스의 전구 색상 변경(빨간색에서 녹색으로)을 요청</strong>합니다.</p>
 
 <ul>
-<li><p>이를 위해 애플리케이션이 <strong>$aws/things/myLightBulb/shadow/update</strong> 주제에 메시지를 게시합니다.</p>
+<li><p>이를 위해 애플리케이션이 <strong>$aws/things/myLightBulb/shadow/update</strong> 주제에 아래 메시지를 게시합니다.</p>
 
 <div><pre><code class="language-javascript">{
     &quot;state&quot;: {
@@ -652,7 +673,7 @@ const char SECRET_CERTIFICATE[] = R&quot;(
     }
 } </code></pre></div></li>
 </ul></li>
-<li><p>디바이스 섀도우 서비스가 메시지를 <strong>$aws/things/myLightBulb/shadow/update/accepted</strong> 주제로 전송하여 응답합니다.</p>
+<li><p>디바이스 섀도우 서비스가 다음 메시지를 <strong>$aws/things/myLightBulb/shadow/update/accepted</strong> 주제로 전송하여 응답합니다.</p>
 
 <div><pre><code class="language-javascript">{
   &quot;messageNumber&quot;: 5,
@@ -676,7 +697,7 @@ const char SECRET_CERTIFICATE[] = R&quot;(
   &quot;timestamp&quot;: 1469564658286,
   &quot;topic&quot;: &quot;$aws/things/myLightBulb/shadow/update/accepted&quot;
 }</code></pre></div></li>
-<li><p>섀도우 업데이트를 수락한 후 그 업데이트된 섀도우에 포함된 원하는 상태 및 보고된 상태의 값이 서로 다른 경우 디바이스 섀도우 서비스가 <strong>$aws/things/myLightBulb/shadow/update/delta</strong> 주제로 메시지를 게시합니다.</p>
+<li><p>섀도우 서비스가 업데이트를 수락한 후 그 업데이트된 섀도우에 포함된 원하는 상태 및 보고된 상태의 값이 서로 다른 경우 디바이스 섀도우 서비스가 <strong>$aws/things/myLightBulb/shadow/update/delta</strong> 주제로 다음 메시지를 게시합니다.</p>
 
 <div><pre><code class="language-javascript">{
   &quot;messageNumber&quot;: 1,
@@ -696,7 +717,7 @@ const char SECRET_CERTIFICATE[] = R&quot;(
   &quot;timestamp&quot;: 1469564658309,
   &quot;topic&quot;: &quot;$aws/things/myLightBulb/shadow/update/delta&quot;
 }</code></pre></div></li>
-<li><p>업데이트가 완료되면 디바이스 섀도우 서비스가 <strong>$aws/things/myLightBulb/shadow/update/documents</strong> 주제에 메시지를 게시합니다.</p>
+<li><p>새도우의 업데이트가 완료되면 디바이스 섀도우 서비스가 <strong>$aws/things/myLightBulb/shadow/update/documents</strong> 주제에 다음 메시지를 게시합니다.</p>
 
 <div><pre><code class="language-javascript">{
     &quot;previous&quot;:{
@@ -739,7 +760,11 @@ const char SECRET_CERTIFICATE[] = R&quot;(
     },
     &quot;timestamp&quot;:1483468612
 }</code></pre></div></li>
-<li><p>전구가 <strong>$aws/things/myLightBulb/shadow/update/delta</strong> 주제로 구독하고 있으면, 전구는 메시지를 수신하고, 색상을 변경하고, 새 상태를 게시합니다. 이를 시뮬레이션하려면 AWS IoT MQTT 클라이언트를 사용해 다음 메시지를 <strong>$aws/things/myLightBulb/shadow/update</strong> 주제에 게시하여 섀도우 상태를 업데이트합니다. </p>
+<li><p>전구가 <strong>$aws/things/myLightBulb/shadow/update/delta</strong> 주제로 구독하고 있으면, 전구는 메시지를 수신하고, 색상을 변경하고, 새 상태를 게시합니다. </p>
+
+<ul>
+<li>이를 시뮬레이션하려면 <strong>AWS IoT MQTT Client</strong>를 사용해 다음 메시지를 <strong>$aws/things/myLightBulb/shadow/update</strong> 주제에 게시하여 섀도우 상태를 업데이트합니다. </li>
+</ul>
 
 <div><pre><code class="language-javascript">{
     &quot;state&quot;:{
@@ -777,11 +802,46 @@ const char SECRET_CERTIFICATE[] = R&quot;(
   &quot;timestamp&quot;: 1469564801673,
   &quot;topic&quot;: &quot;$aws/things/myLightBulb/shadow/update/accepted&quot;
 }</code></pre></div></li>
+<li><p>디바이스 섀도우에 대한 업데이트가 성공적으로 완료되면, 디바이스 섀도우 서비스가 다음 메시지를 <strong>$aws/things/myLightBulb/shadow/update/documents</strong> 주제에 게시합니다.</p>
+
+<div><pre><code class="language-javascript">{
+    &quot;previous&quot;:{
+    &quot;state&quot;:{
+      &quot;reported&quot;:{
+        &quot;color&quot;:&quot;red&quot;
+      }
+    },
+    &quot;metadata&quot;:{
+         &quot;reported&quot;:{
+              &quot;color&quot;:{
+                  &quot;timestamp&quot;:1483470355
+              }
+          }
+      },
+      &quot;version&quot;:3
+    },
+    &quot;current&quot;:{
+      &quot;state&quot;:{
+        &quot;reported&quot;:{
+          &quot;color&quot;:&quot;green&quot;
+        }
+      },
+      &quot;metadata&quot;:{
+        &quot;reported&quot;:{
+          &quot;color&quot;:{
+            &quot;timestamp&quot;:1483470364
+          }
+        }
+      },
+      &quot;version&quot;:4
+    },
+    &quot;timestamp&quot;:1483470364
+}</code></pre></div></li>
 </ol>
 
-<h2 id="toc_14"></h2>
+<h2 id="toc_17"></h2>
 
-<h2 id="toc_15">4. AWS IoT로 온도 값 전송 및 LED 제어</h2>
+<h2 id="toc_18">4. AWS IoT로 온도 값 전송 및 LED 제어</h2>
 
 <ul>
 <li><p><a href="#2">2. AWS IoT Core와 아두이노 (MKR WiFi 1010) 연결하기</a>에서 수행한 실습 설정을 바탕으로 다음 과정을 진행합니다.</p></li>
@@ -809,17 +869,26 @@ const char SECRET_CERTIFICATE[] = R&quot;(
 </ul></li>
 <li> 아두이노 IDE의 시리얼 모니터를 열고, 접속이 제대로 이루어지는 지 확인해 본다.
 <img src="figures/run1.png" alt=""></li>
-<li><p>MQTT Client를 통해 다음 주제를 구독하여, 현재 디바이스 상태가 제대로 수신되는 지를 확인한다.</p>
+<li><p><strong>AWS IoT MQTT Client</strong>를 통해 다음 주제를 구독하여, 현재 디바이스 상태 업데이트가 제대로 수신되는 지를 확인한다.</p>
 
 <ul>
 <li>주제: $aws/things/MyMKRWiFi1010/shadow/update</li>
 </ul>
 
-<p><img src="figures/run4.png" alt=""></p></li>
-<li><p>MQTT Client를 통해 다음 주제와 메시지를 지정하여 게시하여, 아두이노의 LED가 켜지는지 확인한다.</p>
+<p><img src="figures/run4.png" alt=""></p>
 
 <ul>
-<li>주제 : $aws/things/MyMKRWiFi1010/shadow/update</li>
+<li>다음 주제를 추가로 구독하여, 디바이스 섀도우 서비스로부터의 응답을 확인해 본다.
+
+<ul>
+<li>$aws/things/MyMKRWiFi1010/shadow/update/accepted</li>
+<li>$aws/things/MyMKRWiFi1010/shadow/update/documents<br></li>
+</ul></li>
+</ul></li>
+<li><p><strong>AWS IoT MQTT Client</strong>를 통해 다음 주제와 메시지를 지정하여 게시하여, 아두이노의 LED가 켜지는지 확인한다.</p>
+
+<ul>
+<li>주제 : <strong>$aws/things/MyMKRWiFi1010/shadow/update</strong></li>
 <li><p>메시지 </p>
 
 <div><pre><code class="language-javascript">{
@@ -829,22 +898,28 @@ const char SECRET_CERTIFICATE[] = R&quot;(
       }
   }
 }</code></pre></div></li>
-<li><p>결과 (시리얼 모니터창)
-<img src="figures/run2.png" alt=""></p></li>
+<li><p>결과 (시리얼 모니터창)</p>
+
+<ul>
+<li>디바이스 섀도우 서비스가 <strong>/update</strong> 요청에 대해 응답하는 <strong>$aws/things/MyMKRWiFi1010/shadow/update/delta</strong> 주제의 메시지를 게시하는데, 아두이노 디바이스에서는 <strong>$aws/things/MyMKRWiFi1010/shadow/update/delta</strong> 주제를 구독하고 있으므로, 아래와 같이 수신된 <strong>update/delta</strong> 메시지를 처리하고 있습니다.<br>
+<img src="figures/run2.png" alt=""></li>
+</ul></li>
 </ul></li>
 <li><p>MQTT Client를 통해 다음 주제와 메시지를 지정하여 게시하여, 디바이스의 현재 상태를 얻어온다.</p>
 
 <ul>
-<li>주제: $aws/things/MyMKRWiFi1010/shadow/get</li>
+<li>주제: <strong>$aws/things/MyMKRWiFi1010/shadow/get</strong></li>
 <li><p>메시지: &quot;&quot;</p></li>
 <li><p>결과 확인 방법</p>
 
 <ul>
-<li>MQTT Client를 통해 다음 주제를 구독하면, 수신되는 응답 상태 문서에서 디바이스의 현재 상태를 확인할 수 있다.
+<li><p><strong>AWS IoT MQTT Client</strong>를 통해 다음 주제를 구독하면, 수신되는 응답 상태 문서에서 디바이스의 현재 상태를 확인할 수 있다.</p>
 
 <ul>
-<li>구독 주제: $aws/things/MyMKRWiFi1010/shadow/get/accepted</li>
-</ul></li>
+<li>구독 주제: <strong>$aws/things/MyMKRWiFi1010/shadow/get/accepted</strong></li>
+</ul>
+
+<p><img src="figures/run5.png" alt=""></p></li>
 </ul></li>
 </ul></li>
 </ol>
