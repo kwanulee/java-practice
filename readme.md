@@ -12,6 +12,6 @@
 | 9주 | [자바 스윙 GUI 실습](gui-basic.html) |
 | 10주 | [자바의 이벤트 처리 실습](event_handling.html) |
 | 11주 | [다양한 스윙 컴포넌트 활용 실습](swing-component.html) |
-| 12주 | 패키지와 컬렉션 실습 |
+| 12주 | [패키지와 컬렉션 실습](package-collection.html) |
 | 13주 | 입출력 스트림과 파일 입출력 실습 |
 | 14주 | 자바 스레드 기초 실습 |
