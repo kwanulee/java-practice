@@ -5,7 +5,8 @@
 
 - 현재 날짜와 시간을 표시하는 디지털 시계를 Thread 클래스를 이용하여 만들어라. 시계는 년, 월, 일, 시, 분, 초 값을 가진다.
 
-	<img src="figure/14-1.jpg" width=250>
+	<img src="figure/14-1.JPG" width=250>
+	
 - 현재 시간 값을 알아오는 코드는 다음과 같다.
 	- Calendar 클래스를 사용하려면 **import java.util.Calendar;** 문이 필요하다.
 
@@ -29,7 +30,7 @@
 - 현재 날짜와 시간을 표시하는 디지털 시계를 Runnable 인터페이스를 이용하여 만들어라. 시계는 년, 월, 일, 시, 분, 초 값을 가진다.
 실행 결과는 프레임의 타이틀을 제외하고는 1번과 동일한다.
 
-	<img src="figure/14-2.jpg" width=250>
+	<img src="figure/14-2.JPG" width=250>
 
 [참조코드]
 	https://github.com/kwanulee/JavaExample/blob/master/JavaThread/RunnableTimerEx/src/RunnableTimerEx.java
